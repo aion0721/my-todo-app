@@ -1,21 +1,17 @@
-import { useState } from "react";
-import TodoList from "./components/TodoList";
+import { Route, Routes } from "react-router-dom";
+import Todo from "./pages/Todo";
+import About from "./pages/About";
+import Layout from "./pages/Layout";
 
 function App() {
-  const [input, setInput] = useState("");
-  const [todos, setTodos] = useState([]);
-
-  const handleAddTodo = () => {
-    setTodos([...todos, input]);
-    setInput("");
-  };
-
   return (
     <>
-      <h1>Todoアプリ</h1>
-      <input value={input} onChange={(e) => setInput(e.target.value)} />
-      <button onClick={handleAddTodo}>追加</button>
-      <TodoList todos={todos} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Todo />} />
+          <Route path="/about" element={<About />} />
+        </Route>
+      </Routes>
     </>
   );
 }
