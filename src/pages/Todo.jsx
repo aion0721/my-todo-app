@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import TodoList from "../components/TodoList.jsx";
 
 const Todo = () => {
-  const apiEndpoint = "	http://rp.local:3000/todo";
+  const apiEndpoint = "	http://localhost:3000/todo";
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
 

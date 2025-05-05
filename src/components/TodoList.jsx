@@ -1,8 +1,20 @@
+const ulStyle = {
+  listStyle: "none",
+  padding: "0",
+};
+
+const liStyle = {
+  padding: "0.5em 0",
+  borderBottom: "1px solid #eee",
+};
+
 const TodoList = ({ todos }) => {
   return (
-    <ul>
+    <ul style={ulStyle}>
       {todos.map((todo, index) => (
-        <li key={index}>{todo}</li>
+        <li style={liStyle} key={index}>
+          {todo}
+        </li>
       ))}
     </ul>
   );
