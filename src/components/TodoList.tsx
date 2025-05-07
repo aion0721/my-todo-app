@@ -8,7 +8,11 @@ const liStyle = {
   borderBottom: "1px solid #eee",
 };
 
-const TodoList = ({ todos }) => {
+type TodoListProps = {
+  todos: string[];
+};
+
+const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   return (
     <ul style={ulStyle}>
       {todos.map((todo, index) => (

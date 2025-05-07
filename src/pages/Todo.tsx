@@ -4,7 +4,7 @@ import TodoList from "../components/TodoList.jsx";
 const Todo = () => {
   const apiEndpoint = "	http://localhost:3000/todo";
   const [input, setInput] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([""]);
 
   const handleAddTodo = () => {
     fetch(apiEndpoint, {
