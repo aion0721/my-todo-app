@@ -1,19 +1,25 @@
 import { useState, useEffect } from "react";
 import TodoList from "../components/TodoList.jsx";
+import type { TodoType } from "../types/todo";
 
 const Todo = () => {
   const apiEndpoint = "	http://localhost:3000/todo";
   const [input, setInput] = useState("");
-  const [todos, setTodos] = useState([""]);
+  const [todos, setTodos] = useState<TodoType[]>([]);
 
   const handleAddTodo = () => {
+    const newTodo: TodoType = {
+      id: crypto.randomUUID(),
+      title: input,
+      status: "NEW",
+    };
     fetch(apiEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(input),
+      body: JSON.stringify(newTodo),
     })
       .then(() => {
-        setTodos([...todos, input]);
+        setTodos([...todos, newTodo]);
         setInput("");
       })
       .catch((error) => console.error("Error adding todo:", error));

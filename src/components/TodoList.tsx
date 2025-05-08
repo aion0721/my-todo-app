@@ -1,3 +1,5 @@
+import type { TodoType } from "../types/todo";
+
 const ulStyle = {
   listStyle: "none",
   padding: "0",
@@ -9,15 +11,15 @@ const liStyle = {
 };
 
 type TodoListProps = {
-  todos: string[];
+  todos: TodoType[];
 };
 
 const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   return (
     <ul style={ulStyle}>
       {todos.map((todo, index) => (
-        <li style={liStyle} key={index}>
-          {todo}
+        <li style={liStyle} key={todo.id}>
+          {todo.title} [{todo.status}]
         </li>
       ))}
     </ul>
