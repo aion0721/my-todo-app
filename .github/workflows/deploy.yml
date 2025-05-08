@@ -6,6 +6,8 @@ on:
       - GitHub
 
 jobs:
+  permissions:
+    contents: write
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
