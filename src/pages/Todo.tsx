@@ -18,11 +18,11 @@ const Todo = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTodo),
     })
-      .then(() => {
-        setTodos([...todos, newTodo]);
+      .catch((error) => console.error("Error adding todo:", error))
+      .finally(() => {
+        setTodos((prevTodos) => [...prevTodos, newTodo]);
         setInput("");
-      })
-      .catch((error) => console.error("Error adding todo:", error));
+      });
   };
 
   useEffect(() => {
